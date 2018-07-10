@@ -26,27 +26,13 @@ var preguntas = [
     type: "list",
     name: "direction",
     message: "Choose a direction.",
-    if (direction0ne || directionTwo === "NORTHBOUND" || "SOUTHBOUND") {
-    choices: ["North", "South",] }
-    else {["East", "West"]
-  }
-  }
+    choices: ["North", "South", new inquirer.Separator(), "East", "West"]
+  },
   {
-    type: "checkbox",
-    message: "Servicios Publicos",
-    name: "servicios",
-    choices: [
-      {
-        name: "Agua",
-        checked: true
-      },
-      {
-        name: "Luz"
-      },
-      {
-        name: "Internet"
-      }
-    ]
+    type: "input",
+    message: "stop",
+    name: "stop",
+    message: "Enter your stop ID on route."
   }
 ];
 inquirer.prompt(preguntas, function(respuestas) {
