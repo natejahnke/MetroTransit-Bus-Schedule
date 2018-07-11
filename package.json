@@ -19,8 +19,6 @@
   "homepage": "https://github.com/natejahnke/MetroTransit-Bus-Schedule#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "inquirer": "^6.0.0",
-    "request": "^2.87.0"
+    "inquirer": "^6.0.0"
   }
 }

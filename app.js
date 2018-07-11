@@ -26,7 +26,7 @@ inquirer
       type: "list",
       name: "direction",
       message: "Choose a direction.",
-      choices: ["1", "South", new inquirer.Separator(), "East", "West"]
+      choices: ["North", "South", new inquirer.Separator(), "East", "West"]
     },
     {
       type: "input",
@@ -37,13 +37,36 @@ inquirer
   ])
   .then(function(bus) {
     console.log(bus.route);
-    axios.get(
-      "http://svc.metrotransit.org/NexTrip/" +
-        bus.route +
-        "/" +
-        bus.direction +
-        "/" +
-        bus.stop +
-        "?format=json"
-    );
+    let busDirection = 0;
+    if (bus.direction === "South") {
+      busDirection = 1;
+    } else if (bus.direction === "East") {
+      busDirection = 2;
+    } else if (bus.direction === "West") {
+      busDirection = 3;
+    } else if (bus.direction === "North") {
+      busDirection = 4;
+    }
+    console.log(busDirection);
+    axios
+      .get(
+        "http://svc.metrotransit.org/NexTrip/" +
+          bus.route +
+          "/" +
+          busDirection +
+          "/" +
+          bus.stop +
+          "?format=json"
+      )
+      .then(function(nextBus) {
+        console.log(
+          "The next bus heading " +
+            bus.direction +
+            "bound departs stop " +
+            bus.stop +
+            " in " +
+            nextBus.data[0].DepartureText +
+            "utes."
+        );
+      });
   });
