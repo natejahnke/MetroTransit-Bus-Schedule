@@ -13,7 +13,7 @@ A node.js CLI app that prompts for your route number, direction and bus stop cod
 npm install
 ```
 
-!(metrotransitdemo.JPG)
+![CLI App Demo](metrotransitdemo.JPG)
 
 ### Technology
 
