@@ -36,7 +36,6 @@ inquirer
     }
   ])
   .then(function(bus) {
-    console.log(bus.route);
     let busDirection = 0;
     if (bus.direction === "South") {
       busDirection = 1;
@@ -47,7 +46,6 @@ inquirer
     } else if (bus.direction === "North") {
       busDirection = 4;
     }
-    console.log(busDirection);
     axios
       .get(
         "http://svc.metrotransit.org/NexTrip/" +
